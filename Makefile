@@ -18,3 +18,6 @@ stop:
 
 rm:
 	$(DOCKER_COMPOSE) rm -f
+
+python:
+	@$(DOCKER) exec -i $(CONTAINER_NAME) python $(SRC)
