@@ -1,4 +1,5 @@
 from subprocess import *
+from datetime import datetime
 
 import random, math, sys
 
@@ -8,6 +9,5 @@ mpl.use('Agg')
 from matplotlib import pyplot as plt
 
 def plt_show_alt(plt):
-    plt.savefig("/tmp/output.png")
-    #process = Popen(["/usr/local/sbin/imgcat", "/tmp/output.png"])
+    plt.savefig("/srv/tmp/" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".png")
     plt.clf()

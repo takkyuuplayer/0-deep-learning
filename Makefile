@@ -1,13 +1,20 @@
 DOCKER=$(shell which docker)
+DOCKER_COMPOSE=$(shell which docker-compose)
+CONTAINER_NAME=0-deep-learning
+
+up:
+	$(DOCKER_COMPOSE) up -d
 
 build:
-	$(DOCKER) build 0-deep-learning .
-up:
-	$(DOCKER) run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix${DISPLAY} -i -t 0-deep-learning /bin/bash
+	$(DOCKER_COMPOSE) build
 
-up/notebook:
-	$(DOCKER) run -i -t -p 8888:8888 0-deep-learning \
-		/bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet &&\
-		mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook \
-		--notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+clean: stop rm
 
+attach:
+	@$(DOCKER) exec -it $(CONTAINER_NAME) bash
+
+stop:
+	$(DOCKER_COMPOSE) stop
+
+rm:
+	$(DOCKER_COMPOSE) rm -f

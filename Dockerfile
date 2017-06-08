@@ -1,2 +1,6 @@
 FROM continuumio/anaconda3
-RUN apt-get install python-qt4 -y
+
+ENV LC_ALL C
+
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get install -y python-qt4
