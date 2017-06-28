@@ -1,21 +1,12 @@
 import sys, os
 sys.path.append(os.curdir)
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from datasets.mnist import load_mnist
 import pickle
 import numpy as np
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+from common.functions import sigmoid,softmax
 
-def softmax(a):
-    c = np.max(a)
-    exp_a = np.exp(a - c)
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
 
 def get_data():
     (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False)

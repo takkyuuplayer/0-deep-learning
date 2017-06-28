@@ -1,9 +1,10 @@
-from common import lib as l
+import sys, os
+sys.path.append(os.curdir)
 
+import common.lib as l
 import numpy as np
 
-def relu(x):
-    return np.maximum(0, x)
+from common.functions import relu
 
 x = np.arange(-5.0, 5.0, 0.1)
 y = relu(x)

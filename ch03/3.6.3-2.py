@@ -5,16 +5,7 @@ from datasets.mnist import load_mnist
 import pickle
 import numpy as np
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-def softmax(a):
-    c = np.max(a)
-    exp_a = np.exp(a - c)
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
+from common.functions import sigmoid,softmax
 
 def get_data():
     (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False)
@@ -52,4 +43,3 @@ for i in range(0, len(x), batch_size):
     accuracy_cnt += np.sum(p == t[i:i+batch_size])
 
 print("Accuracy:" + str(float(accuracy_cnt) / len(x)))
-

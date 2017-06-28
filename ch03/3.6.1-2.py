@@ -6,7 +6,6 @@ from common.lib import pil_img_show_alt
 
 import numpy as np
 
-# 最初の呼び出しは数分待ちます…
 (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 
 img = x_train[0]
