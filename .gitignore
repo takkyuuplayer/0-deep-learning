@@ -1,4 +1,6 @@
 /tmp
+/datasets/*.gz
+/datasets/mnist.pkl
 
 # Created by https://www.gitignore.io/api/python
 
