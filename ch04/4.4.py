@@ -3,7 +3,7 @@ sys.path.append(os.curdir)
 
 import numpy as np
 
-from common.functions import numerical_gradient
+from common.gradient import numerical_gradient
 
 def function_2(x):
     return np.sum(x ** 2)

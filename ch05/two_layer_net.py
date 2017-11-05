@@ -7,7 +7,7 @@ from add_layer import AddLayer
 from affine import Affine
 from relu import Relu
 from softmax_with_loss import SoftmaxWithLoss
-from common.functions import numerical_gradient
+from common.gradient import numerical_gradient
 from collections import OrderedDict
 
 class TwoLayerNet:
