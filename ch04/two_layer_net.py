@@ -3,6 +3,7 @@ sys.path.append(os.curdir)
 
 import numpy as np
 from common.functions import *
+from common.gradient import numerical_gradient
 
 class TwoLayerNet:
 
